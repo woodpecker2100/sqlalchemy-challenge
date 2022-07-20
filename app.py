@@ -14,11 +14,13 @@ import pandas as pd
 
 # Database Setup
 
-#engine = create_engine("sqlite:///hawaii.sqlite")
-engine = create_engine("sqlite:///Resources/hawaii.sqlite")
+# It doesn't work with "Resources"
+engine = create_engine("sqlite:///hawaii.sqlite") 
+
 Base = automap_base()
 Base.prepare(engine, reflect=True)
-Measurement = Base.classes.Measurement
+# Base.classes.keys()
+Measurement = Base.classes.measurement
 Station = Base.classes.station
 session = Session(engine)
 
